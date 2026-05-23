@@ -17,6 +17,8 @@ public class ProizvodEntity {
     private String kategorija;
     private String slikaUrl;
     private String korisnikId;
+    private String grad;
+    private String drzava;
 
     public ProizvodEntity() {}
 
@@ -56,4 +58,10 @@ public class ProizvodEntity {
 
     public String getKorisnikId() { return korisnikId; }
     public void setKorisnikId(String korisnikId) { this.korisnikId = korisnikId; }
+
+    public String getGrad() { return grad; }
+    public void setGrad(String grad) { this.grad = grad; }
+
+    public String getDrzava() { return drzava; }
+    public void setDrzava(String drzava) { this.drzava = drzava; }
 }

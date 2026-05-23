@@ -48,6 +48,12 @@ public class ProizvodDetaljiActivity extends AppCompatActivity {
                             vezanje.tvCijena.setText(cijena + " KM");
                         }
 
+                        String grad = snapshot.child("grad").getValue(String.class);
+                        String drzava = snapshot.child("drzava").getValue(String.class);
+                        if (grad != null && drzava != null) {
+                            vezanje.tvLokacija.setText("📍 " + grad + ", " + drzava);
+                        }
+
                         String slikaUrl = snapshot.child("slikaUrl").getValue(String.class);
                         if (slikaUrl != null && !slikaUrl.isEmpty()) {
                             Glide.with(ProizvodDetaljiActivity.this)
