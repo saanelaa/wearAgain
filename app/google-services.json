@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "474568472061",
+    "project_id": "wearagain-4f746",
+    "storage_bucket": "wearagain-4f746.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:474568472061:android:9818ad4a8aac95a1e11594",
+        "android_client_info": {
+          "package_name": "com.example.wearagain"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuux_G1bhIhwfWQOeeaM7Mthl-i_R4QjM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
