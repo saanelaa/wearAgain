@@ -38,7 +38,7 @@ public class ProizvodRepository {
     }
 
     private void sinkronizujSaFirebase() {
-        FirebaseDatabase.getInstance().getReference("proizvodi")
+        FirebaseDatabase.getInstance("https://wearagain-4f746-default-rtdb.europe-west1.firebasedatabase.app/").getReference("proizvodi")
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot snapshot) {

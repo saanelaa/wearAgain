@@ -13,6 +13,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.example.wearagain.ui.auth.LoginActivity;
+import android.content.Intent;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -27,7 +29,7 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(vezanje.getRoot());
 
         auth = FirebaseAuth.getInstance();
-        bazaPodataka = FirebaseDatabase.getInstance().getReference("korisnici");
+        bazaPodataka = FirebaseDatabase.getInstance("https://wearagain-4f746-default-rtdb.europe-west1.firebasedatabase.app/").getReference("korisnici");
 
         ucitajPodatkeKorisnika();
 
@@ -45,28 +47,53 @@ public class ProfileActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(DataSnapshot snapshot) {
                         vezanje.etIme.setText(snapshot.child("ime").getValue(String.class));
+                        vezanje.etUsername.setText(snapshot.child("username").getValue(String.class));
                         vezanje.etEmail.setText(korisnik.getEmail());
                     }
 
                     @Override
-                    public void onCancelled(DatabaseError error) {
-                    }
+                    public void onCancelled(DatabaseError error) {}
                 });
     }
 
     private void sacuvajPromjene() {
         String novoIme = vezanje.etIme.getText().toString().trim();
-        if (novoIme.isEmpty()) {
-            Toast.makeText(this, "Ime ne može biti prazno", Toast.LENGTH_SHORT).show();
+        String noviUsername = vezanje.etUsername.getText().toString().trim();
+
+        if (novoIme.isEmpty() || noviUsername.isEmpty()) {
+            Toast.makeText(this, "Polja ne mogu biti prazna", Toast.LENGTH_SHORT).show();
             return;
         }
 
         String korisnikId = auth.getCurrentUser().getUid();
-        bazaPodataka.child(korisnikId).child("ime").setValue(novoIme)
-                .addOnSuccessListener(a ->
-                        Toast.makeText(this, "Podaci uspješno sačuvani", Toast.LENGTH_SHORT).show())
-                .addOnFailureListener(e ->
-                        Toast.makeText(this, "Greška: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+
+        bazaPodataka.orderByChild("username").equalTo(noviUsername)
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot snapshot) {
+                        boolean usernameZauzet = false;
+                        for (DataSnapshot dijete : snapshot.getChildren()) {
+                            if (!dijete.getKey().equals(korisnikId)) {
+                                usernameZauzet = true;
+                                break;
+                            }
+                        }
+
+                        if (usernameZauzet) {
+                            Toast.makeText(ProfileActivity.this, "Username je već zauzet", Toast.LENGTH_SHORT).show();
+                        } else {
+                            bazaPodataka.child(korisnikId).child("ime").setValue(novoIme);
+                            bazaPodataka.child(korisnikId).child("username").setValue(noviUsername)
+                                    .addOnSuccessListener(a ->
+                                            Toast.makeText(ProfileActivity.this, "Podaci uspješno sačuvani", Toast.LENGTH_SHORT).show())
+                                    .addOnFailureListener(e ->
+                                            Toast.makeText(ProfileActivity.this, "Greška: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError error) {}
+                });
     }
 
     private void promijeniLozinku() {
@@ -82,6 +109,9 @@ public class ProfileActivity extends AppCompatActivity {
 
     private void odjavi() {
         auth.signOut();
+        Intent namjera = new Intent(ProfileActivity.this, LoginActivity.class);
+        namjera.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(namjera);
         finish();
     }
 }

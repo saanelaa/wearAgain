@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/splash_pozadina">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="24dp">
+
+        <TextView
+            android:id="@+id/tvNaslov"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dodaj oglas"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:layout_marginTop="32dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <ImageView
+            android:id="@+id/ivPreviewSlike"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:background="#2B2B3B"
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@id/tvNaslov"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <Button
+            android:id="@+id/btnOdaberiSliku"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Odaberi sliku"
+            android:backgroundTint="#555555"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/ivPreviewSlike"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <EditText
+            android:id="@+id/etNaziv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Naziv odjevnog predmeta"
+            android:textColor="@color/white"
+            android:textColorHint="#AAAAAA"
+            android:backgroundTint="@color/white"
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@id/btnOdaberiSliku"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <EditText
+            android:id="@+id/etOpis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Opis"
+            android:inputType="textMultiLine"
+            android:minLines="3"
+            android:textColor="@color/white"
+            android:textColorHint="#AAAAAA"
+            android:backgroundTint="@color/white"
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@id/etNaziv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <EditText
+            android:id="@+id/etCijena"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Cijena (KM)"
+            android:inputType="numberDecimal"
+            android:textColor="@color/white"
+            android:textColorHint="#AAAAAA"
+            android:backgroundTint="@color/white"
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@id/etOpis"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvKategorija"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kategorija"
+            android:textColor="@color/white"
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@id/etCijena"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <Spinner
+            android:id="@+id/spinnerKategorija"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/tvKategorija"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvVelicina"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Veličina"
+            android:textColor="@color/white"
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@id/spinnerKategorija"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <Spinner
+            android:id="@+id/spinnerVelicina"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/tvVelicina"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <Button
+            android:id="@+id/btnDodajProizvod"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Objavi oglas"
+            android:layout_marginTop="32dp"
+            app:layout_constraintTop_toBottomOf="@id/spinnerVelicina"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <Button
+            android:id="@+id/btnNazad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nazad"
+            android:backgroundTint="#555555"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/btnDodajProizvod"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

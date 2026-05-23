@@ -18,6 +18,8 @@ public class ProizvodEntity {
     private String slikaUrl;
     private String korisnikId;
 
+    public ProizvodEntity() {}
+
     public ProizvodEntity(@NonNull String id, String naziv, String opis, double cijena,
                           String velicina, String kategorija, String slikaUrl, String korisnikId) {
         this.id = id;

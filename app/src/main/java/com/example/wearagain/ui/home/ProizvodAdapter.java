@@ -18,6 +18,14 @@ import java.util.List;
 
 public class ProizvodAdapter extends RecyclerView.Adapter<ProizvodAdapter.ProizvodViewHolder> {
 
+    public interface OnProizvodKlikListener {
+        void onKlik(String proizvodId);
+    }
+    private OnProizvodKlikListener klikListener;
+
+    public void postaviKlikListener(OnProizvodKlikListener listener) {
+        this.klikListener = listener;
+    }
     private List<ProizvodEntity> listaProizvoda = new ArrayList<>();
     private List<ProizvodEntity> punaLista = new ArrayList<>();
 
@@ -62,6 +70,11 @@ public class ProizvodAdapter extends RecyclerView.Adapter<ProizvodAdapter.Proizv
                 .load(proizvod.getSlikaUrl())
                 .placeholder(R.drawable.ic_launcher_foreground)
                 .into(holder.ivSlika);
+        holder.itemView.setOnClickListener(v -> {
+            if (klikListener != null) {
+                klikListener.onKlik(proizvod.getId());
+            }
+        });
     }
 
     @Override

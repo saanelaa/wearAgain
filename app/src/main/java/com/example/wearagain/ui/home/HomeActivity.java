@@ -13,6 +13,8 @@ import com.example.wearagain.databinding.ActivityHomeBinding;
 import com.example.wearagain.ui.profile.ProfileActivity;
 import com.example.wearagain.ui.settings.SettingsActivity;
 import com.example.wearagain.viewmodel.ProizvodViewModel;
+import com.example.wearagain.ui.product.ProizvodDetaljiActivity;
+import com.example.wearagain.ui.product.AddProizvodActivity;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -36,6 +38,11 @@ public class HomeActivity extends AppCompatActivity {
         adapter = new ProizvodAdapter();
         vezanje.recyclerProizvodi.setLayoutManager(new GridLayoutManager(this, 2));
         vezanje.recyclerProizvodi.setAdapter(adapter);
+        adapter.postaviKlikListener(proizvodId -> {
+            Intent namjera = new Intent(HomeActivity.this, ProizvodDetaljiActivity.class);
+            namjera.putExtra(ProizvodDetaljiActivity.KLJUC_PROIZVOD_ID, proizvodId);
+            startActivity(namjera);
+        });
     }
 
     private void postaviViewModel() {
@@ -66,5 +73,8 @@ public class HomeActivity extends AppCompatActivity {
 
         vezanje.btnPostavke.setOnClickListener(v ->
                 startActivity(new Intent(HomeActivity.this, SettingsActivity.class)));
+
+        vezanje.btnDodajOglas.setOnClickListener(v ->
+                startActivity(new Intent(HomeActivity.this, AddProizvodActivity.class)));
     }
 }
