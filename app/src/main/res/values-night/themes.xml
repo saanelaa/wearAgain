@@ -1,7 +1,11 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.WearAgain" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.WearAgain" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/tamna_dugmadi_pozitivno</item>
+        <item name="colorPrimaryVariant">@color/tamna_boja_okvira</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/tamna_dugmadi_negativno</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="android:windowBackground">@color/tamna_pozadina</item>
     </style>
 </resources>

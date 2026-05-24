@@ -155,7 +155,7 @@ public class AddProizvodActivity extends AppCompatActivity {
 
         bazaPodataka.child(proizvodId).setValue(proizvod)
                 .addOnSuccessListener(a -> {
-                    Toast.makeText(this, "Oglas uspješno objavljen!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Objava uspješna!", Toast.LENGTH_SHORT).show();
                     finish();
                 })
                 .addOnFailureListener(e -> {

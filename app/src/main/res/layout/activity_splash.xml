@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/splash_pozadina">
+    android:background="@color/pozadina">
 
     <ImageView
         android:id="@+id/logoSlika"
@@ -24,10 +25,36 @@
         android:text="WearAgain"
         android:textSize="32sp"
         android:textStyle="bold"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/boja_teksta"
+        app:layout_constraintBottom_toTopOf="@id/podNaslov"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/logoSlika"/>
+
+    <TextView
+        android:id="@+id/podNaslov"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="wear it again!"
+        android:textSize="16sp"
+        android:textColor="@color/boja_okvira"
+        app:layout_constraintBottom_toTopOf="@id/tvVerzija"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nazivAplikacije"/>
+
+    <TextView
+        android:id="@+id/tvVerzija"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="v1.0"
+        android:textSize="12sp"
+        android:textColor="@color/boja_dugmadi_pozitivno"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/podNaslov"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

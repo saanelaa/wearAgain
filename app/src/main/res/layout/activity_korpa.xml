@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/splash_pozadina">
+    android:background="@color/pozadina">
 
     <TextView
         android:id="@+id/tvNaslov"
@@ -12,7 +13,7 @@
         android:text="Moja korpa"
         android:textSize="26sp"
         android:textStyle="bold"
-        android:textColor="@color/white"
+        android:textColor="@color/boja_teksta"
         android:padding="16dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
@@ -32,7 +33,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Ukupno: 0.00 KM"
-        android:textColor="@color/white"
+        android:textColor="@color/boja_teksta"
         android:textSize="18sp"
         android:textStyle="bold"
         android:padding="16dp"
@@ -45,6 +46,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Kupi"
+        android:backgroundTint="@color/boja_dugmadi_pozitivno"
+        android:textColor="@color/white"
         android:layout_margin="16dp"
         app:layout_constraintBottom_toTopOf="@id/btnNazad"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,7 +58,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Nazad"
-        android:backgroundTint="#555555"
+        android:backgroundTint="@color/boja_dugmadi_negativno"
+        android:textColor="@color/white"
         android:layout_margin="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -2,9 +2,9 @@ package com.example.wearagain.ui.settings;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.example.wearagain.databinding.ActivitySettingsBinding;
 
@@ -24,22 +24,24 @@ public class SettingsActivity extends AppCompatActivity {
 
         ucitajPostavke();
 
-        vezanje.btnSacuvaj.setOnClickListener(v -> sacuvajPostavke());
+        vezanje.switchTamnaTema.setOnCheckedChangeListener((buttonView, ukljuceno) -> {
+            if (ukljuceno) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            }
+            postavke.edit().putBoolean("tamna_tema", ukljuceno).apply();
+        });
+
+        vezanje.switchObavijesti.setOnCheckedChangeListener((buttonView, ukljuceno) ->
+                postavke.edit().putBoolean("obavijesti", ukljuceno).apply());
+
+        vezanje.btnSacuvaj.setOnClickListener(v -> finish());
     }
 
     private void ucitajPostavke() {
-        vezanje.switchObavijesti.setChecked(
-                postavke.getBoolean("obavijesti", true));
-        vezanje.switchTamnaTema.setChecked(
-                postavke.getBoolean("tamna_tema", true));
-    }
-
-    private void sacuvajPostavke() {
-        SharedPreferences.Editor urednik = postavke.edit();
-        urednik.putBoolean("obavijesti", vezanje.switchObavijesti.isChecked());
-        urednik.putBoolean("tamna_tema", vezanje.switchTamnaTema.isChecked());
-        urednik.apply();
-
-        Toast.makeText(this, "Postavke sačuvane", Toast.LENGTH_SHORT).show();
+        boolean tamnaTema = postavke.getBoolean("tamna_tema", false);
+        vezanje.switchTamnaTema.setChecked(tamnaTema);
+        vezanje.switchObavijesti.setChecked(postavke.getBoolean("obavijesti", true));
     }
 }

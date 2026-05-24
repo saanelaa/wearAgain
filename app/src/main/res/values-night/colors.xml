@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="pozadina">@color/tamna_pozadina</color>
+    <color name="boja_okvira">@color/tamna_boja_okvira</color>
+    <color name="boja_slova_okvira">@color/tamna_boja_teksta</color>
+    <color name="boja_dugmadi_pozitivno">@color/tamna_dugmadi_pozitivno</color>
+    <color name="boja_dugmadi_negativno">@color/tamna_dugmadi_negativno</color>
+    <color name="boja_teksta">@color/tamna_boja_teksta</color>
+    <color name="pozadina_detalji">@color/tamna_boja_okvira</color>
+    <color name="info_proizvoda">@color/tamna_boja_teksta</color>
+</resources>

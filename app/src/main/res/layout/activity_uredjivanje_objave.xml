@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/pozadina">
@@ -15,7 +14,7 @@
             android:id="@+id/tvNaslov"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Dodaj objavu"
+            android:text="Uredi objavu"
             android:textSize="26sp"
             android:textStyle="bold"
             android:textColor="@color/boja_teksta"
@@ -23,39 +22,16 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
 
-        <ImageView
-            android:id="@+id/ivPreviewSlike"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:scaleType="centerCrop"
-            android:background="@color/boja_okvira"
-            android:layout_marginTop="24dp"
-            app:layout_constraintTop_toBottomOf="@id/tvNaslov"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-
-        <Button
-            android:id="@+id/btnOdaberiSliku"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Odaberi sliku"
-            android:backgroundTint="@color/boja_dugmadi_negativno"
-            android:textColor="@color/white"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@id/ivPreviewSlike"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-
         <EditText
             android:id="@+id/etNaziv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Naziv odjevnog predmeta"
+            android:hint="Naziv"
             android:textColor="@color/boja_teksta"
             android:textColorHint="#888888"
             android:backgroundTint="@color/boja_teksta"
-            android:layout_marginTop="24dp"
-            app:layout_constraintTop_toBottomOf="@id/btnOdaberiSliku"
+            android:layout_marginTop="32dp"
+            app:layout_constraintTop_toBottomOf="@id/tvNaslov"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -153,14 +129,26 @@
             app:layout_constraintEnd_toEndOf="parent"/>
 
         <Button
-            android:id="@+id/btnDodajProizvod"
+            android:id="@+id/btnSacuvaj"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Dodaj objavu"
+            android:text="Sačuvaj promjene"
             android:backgroundTint="@color/boja_dugmadi_pozitivno"
             android:textColor="@color/white"
             android:layout_marginTop="32dp"
             app:layout_constraintTop_toBottomOf="@id/spinnerVelicina"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <Button
+            android:id="@+id/btnObrisi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Obriši objavu"
+            android:backgroundTint="@color/boja_dugmadi_negativno"
+            android:textColor="@color/white"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/btnSacuvaj"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -172,7 +160,7 @@
             android:backgroundTint="@color/boja_dugmadi_negativno"
             android:textColor="@color/white"
             android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@id/btnDodajProizvod"
+            app:layout_constraintTop_toBottomOf="@id/btnObrisi"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 

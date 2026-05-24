@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/splash_pozadina"
+    android:background="@color/pozadina"
     android:padding="24dp">
 
     <TextView
@@ -14,7 +14,7 @@
         android:text="Postavke"
         android:textSize="26sp"
         android:textStyle="bold"
-        android:textColor="@color/white"
+        android:textColor="@color/boja_teksta"
         android:layout_marginTop="32dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Obavijesti"
-        android:textColor="@color/white"
+        android:textColor="@color/boja_teksta"
         android:textSize="16sp"
         android:layout_marginTop="48dp"
         app:layout_constraintTop_toBottomOf="@id/tvNaslov"
@@ -44,7 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Tamna tema"
-        android:textColor="@color/white"
+        android:textColor="@color/boja_teksta"
         android:textSize="16sp"
         android:layout_marginTop="32dp"
         app:layout_constraintTop_toBottomOf="@id/tvObavijesti"
@@ -64,6 +64,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Sačuvaj postavke"
+        android:backgroundTint="@color/boja_dugmadi_pozitivno"
+        android:textColor="@color/white"
         android:layout_marginTop="48dp"
         app:layout_constraintTop_toBottomOf="@id/tvTamnaTema"
         app:layout_constraintStart_toStartOf="parent"

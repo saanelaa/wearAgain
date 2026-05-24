@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
     app:cardCornerRadius="12dp"
-    app:cardBackgroundColor="#2B2B3B">
+    app:cardBackgroundColor="@color/boja_okvira">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="8dp"
-            android:textColor="@color/white"
+            android:textColor="@color/boja_slova_okvira"
             android:textStyle="bold"
             android:textSize="14sp"/>
 
@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
-            android:textColor="#A8D5A2"
+            android:textColor="@color/boja_slova_okvira"
             android:textSize="13sp"/>
 
         <TextView
@@ -42,7 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="8dp"
-            android:textColor="#AAAAAA"
+            android:textColor="@color/boja_slova_okvira"
             android:textSize="12sp"/>
 
     </LinearLayout>

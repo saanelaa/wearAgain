@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
     app:cardCornerRadius="12dp"
-    app:cardBackgroundColor="#2B2B3B">
+    app:cardBackgroundColor="@color/boja_okvira">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,7 +31,7 @@
                 android:id="@+id/tvNaziv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
+                android:textColor="@color/boja_slova_okvira"
                 android:textStyle="bold"
                 android:textSize="14sp"/>
 
@@ -38,14 +39,14 @@
                 android:id="@+id/tvCijena"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#A8D5A2"
+                android:textColor="@color/boja_slova_okvira"
                 android:textSize="13sp"/>
 
             <TextView
                 android:id="@+id/tvVelicina"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#AAAAAA"
+                android:textColor="@color/boja_slova_okvira"
                 android:textSize="12sp"/>
 
         </LinearLayout>
@@ -55,7 +56,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@android:drawable/ic_menu_delete"
-            android:background="?attr/selectableItemBackgroundBorderless"/>
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:tint="@color/boja_slova_okvira" />
 
     </LinearLayout>
 

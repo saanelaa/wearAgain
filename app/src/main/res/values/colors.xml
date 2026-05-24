@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="splash_pozadina">#5A5A69</color>
+    <color name="pozadina">#C75256</color>
+    <color name="boja_okvira">#D5C4A6</color>
+    <color name="boja_slova_okvira">#6A040F</color>
+    <color name="boja_dugmadi_pozitivno">#5C6532</color>
+    <color name="boja_dugmadi_negativno">#730A16</color>
+    <color name="boja_teksta">#F7F4D5</color>
+    <color name="pozadina_detalji">#D5C4A6</color>
+    <color name="info_proizvoda">#6A040F</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+
+    <color name="tamna_pozadina">#5C6532</color>
+    <color name="tamna_boja_okvira">#730A16</color>
+    <color name="tamna_boja_teksta">#D5C4A6</color>
+    <color name="tamna_dugmadi_pozitivno">#C75256</color>
+    <color name="tamna_dugmadi_negativno">#6A040F</color>
 </resources>
