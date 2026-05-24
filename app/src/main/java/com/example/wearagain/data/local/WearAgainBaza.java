@@ -8,13 +8,16 @@ import androidx.room.RoomDatabase;
 
 import com.example.wearagain.data.local.dao.ProizvodDao;
 import com.example.wearagain.data.local.entity.ProizvodEntity;
+import com.example.wearagain.data.local.dao.KorpaDao;
+import com.example.wearagain.data.local.entity.KorpaEntity;
 
-@Database(entities = {ProizvodEntity.class}, version = 1, exportSchema = false)
+@Database(entities = {ProizvodEntity.class, KorpaEntity.class}, version = 2, exportSchema = false)
 public abstract class WearAgainBaza extends RoomDatabase {
 
     private static WearAgainBaza instanca;
 
     public abstract ProizvodDao proizvodDao();
+    public abstract KorpaDao korpaDao();
 
     public static synchronized WearAgainBaza dohvatiInstancu(Context context) {
         if (instanca == null) {

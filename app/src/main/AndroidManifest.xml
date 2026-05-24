@@ -32,6 +32,7 @@
         <activity android:name=".ui.settings.SettingsActivity"/>
         <activity android:name=".ui.product.AddProizvodActivity"/>
         <activity android:name=".ui.product.ProizvodDetaljiActivity"/>
+        <activity android:name=".ui.cart.KorpaActivity"/>
     </application>
 
 </manifest>

@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import com.example.wearagain.databinding.ActivityHomeBinding;
+import com.example.wearagain.ui.cart.KorpaActivity;
 import com.example.wearagain.ui.profile.ProfileActivity;
 import com.example.wearagain.ui.settings.SettingsActivity;
 import com.example.wearagain.viewmodel.ProizvodViewModel;
@@ -76,5 +77,8 @@ public class HomeActivity extends AppCompatActivity {
 
         vezanje.btnDodajOglas.setOnClickListener(v ->
                 startActivity(new Intent(HomeActivity.this, AddProizvodActivity.class)));
+
+        vezanje.btnKorpa.setOnClickListener(v ->
+                startActivity(new Intent(HomeActivity.this, KorpaActivity.class)));
     }
 }

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.bumptech.glide.Glide;
 import com.example.wearagain.R;
@@ -12,6 +13,8 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.example.wearagain.data.local.entity.KorpaEntity;
+import com.example.wearagain.viewmodel.KorpaViewModel;
 
 public class ProizvodDetaljiActivity extends AppCompatActivity {
 
@@ -28,6 +31,19 @@ public class ProizvodDetaljiActivity extends AppCompatActivity {
         if (proizvodId != null) {
             ucitajProizvod(proizvodId);
         }
+
+        KorpaViewModel korpaViewModel = new ViewModelProvider(this).get(KorpaViewModel.class);
+
+        vezanje.btnDodajUKorpu.setOnClickListener(v -> {
+            KorpaEntity stavka = new KorpaEntity();
+            stavka.setProizvodId(proizvodId);
+            stavka.setNaziv(vezanje.tvNaziv.getText().toString());
+            stavka.setCijena(Double.parseDouble(vezanje.tvCijena.getText().toString().replace(" KM", "")));
+            stavka.setVelicina(vezanje.tvVelicina.getText().toString().replace("Veličina: ", ""));
+            stavka.setSlikaUrl("");
+            korpaViewModel.dodajUKorpu(stavka);
+            Toast.makeText(this, "Dodano u korpu!", Toast.LENGTH_SHORT).show();
+        });
 
         vezanje.btnNazad.setOnClickListener(v -> finish());
     }
