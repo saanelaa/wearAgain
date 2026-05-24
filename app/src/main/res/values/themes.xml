@@ -7,5 +7,10 @@
         <item name="colorSecondary">@color/boja_dugmadi_negativno</item>
         <item name="colorOnSecondary">@color/white</item>
         <item name="android:windowBackground">@color/pozadina</item>
+        <item name="materialButtonStyle">@style/ZaobljenoBugme</item>
+    </style>
+
+    <style name="ZaobljenoBugme" parent="Widget.MaterialComponents.Button">
+        <item name="cornerRadius">24dp</item>
     </style>
 </resources>
