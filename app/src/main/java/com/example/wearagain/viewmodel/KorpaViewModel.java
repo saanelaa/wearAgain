@@ -9,6 +9,7 @@ import androidx.lifecycle.LiveData;
 import com.example.wearagain.data.local.WearAgainBaza;
 import com.example.wearagain.data.local.dao.KorpaDao;
 import com.example.wearagain.data.local.entity.KorpaEntity;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -18,18 +19,22 @@ public class KorpaViewModel extends AndroidViewModel {
 
     private KorpaDao korpaDao;
     private ExecutorService executor;
+    private String korisnikId;
 
     public KorpaViewModel(@NonNull Application aplikacija) {
         super(aplikacija);
         korpaDao = WearAgainBaza.dohvatiInstancu(aplikacija).korpaDao();
         executor = Executors.newSingleThreadExecutor();
+        korisnikId = FirebaseAuth.getInstance().getCurrentUser() != null ?
+                FirebaseAuth.getInstance().getCurrentUser().getUid() : "";
     }
 
     public LiveData<List<KorpaEntity>> dohvatiKorpu() {
-        return korpaDao.dohvatiKorpu();
+        return korpaDao.dohvatiKorpu(korisnikId);
     }
 
     public void dodajUKorpu(KorpaEntity stavka) {
+        stavka.setKorisnikId(korisnikId);
         executor.execute(() -> korpaDao.dodajUKorpu(stavka));
     }
 
@@ -38,6 +43,6 @@ public class KorpaViewModel extends AndroidViewModel {
     }
 
     public void isprazniKorpu() {
-        executor.execute(() -> korpaDao.isprazniKorpu());
+        executor.execute(() -> korpaDao.isprazniKorpu(korisnikId));
     }
 }

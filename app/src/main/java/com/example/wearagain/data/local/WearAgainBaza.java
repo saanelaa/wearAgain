@@ -11,7 +11,7 @@ import com.example.wearagain.data.local.entity.ProizvodEntity;
 import com.example.wearagain.data.local.dao.KorpaDao;
 import com.example.wearagain.data.local.entity.KorpaEntity;
 
-@Database(entities = {ProizvodEntity.class, KorpaEntity.class}, version = 2, exportSchema = false)
+@Database(entities = {ProizvodEntity.class, KorpaEntity.class}, version = 3, exportSchema = false)
 public abstract class WearAgainBaza extends RoomDatabase {
 
     private static WearAgainBaza instanca;

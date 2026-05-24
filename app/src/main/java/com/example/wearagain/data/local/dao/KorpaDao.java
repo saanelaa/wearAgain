@@ -17,15 +17,15 @@ public interface KorpaDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void dodajUKorpu(KorpaEntity stavka);
 
-    @Query("SELECT * FROM korpa")
-    LiveData<List<KorpaEntity>> dohvatiKorpu();
+    @Query("SELECT * FROM korpa WHERE korisnikId = :korisnikId")
+    LiveData<List<KorpaEntity>> dohvatiKorpu(String korisnikId);
 
-    @Query("SELECT COUNT(*) FROM korpa")
-    LiveData<Integer> brojStavki();
+    @Query("SELECT COUNT(*) FROM korpa WHERE korisnikId = :korisnikId")
+    LiveData<Integer> brojStavki(String korisnikId);
 
     @Delete
     void ukloniIzKorpe(KorpaEntity stavka);
 
-    @Query("DELETE FROM korpa")
-    void isprazniKorpu();
+    @Query("DELETE FROM korpa WHERE korisnikId = :korisnikId")
+    void isprazniKorpu(String korisnikId);
 }
