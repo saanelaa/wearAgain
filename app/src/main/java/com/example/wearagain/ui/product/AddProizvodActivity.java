@@ -23,6 +23,7 @@ import java.util.Map;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
+import okhttp3.OkHttpClient;
 import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -107,9 +108,16 @@ public class AddProizvodActivity extends AppCompatActivity {
             RequestBody tijelo = RequestBody.create(MediaType.parse("image/*"), bajtovi);
             MultipartBody.Part dio = MultipartBody.Part.createFormData("image", "slika.jpg", tijelo);
 
+            OkHttpClient httpKlijent = new OkHttpClient.Builder()
+                    .connectTimeout(60, java.util.concurrent.TimeUnit.SECONDS)
+                    .readTimeout(60, java.util.concurrent.TimeUnit.SECONDS)
+                    .writeTimeout(60, java.util.concurrent.TimeUnit.SECONDS)
+                    .build();
+
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl("https://api.imgbb.com/1/")
                     .addConverterFactory(GsonConverterFactory.create())
+                    .client(httpKlijent)
                     .build();
 
             ImgBBServis servis = retrofit.create(ImgBBServis.class);
